@@ -12,17 +12,19 @@ int main(int argc, char const *argv[])
     //init
     vector<int> v{1, 1, 5, 6, 6, 2, 1, 7, 8, 8, 7, 2};
     int n = v.size();
-    unordered_set<int> hash;
+
+    //sort
+    sort(v.begin(), v.end());
     
     //unique
     int l = 0, r = 0;
     for(; r < n; r++)
-        if(!hash.count(v[r]))
-            v[l++] = v[r], hash.insert(v[r]);
-    v.erase(v.begin() + l, v.end());
+        if(v[r] != v[r - 1])
+            v[l++] = v[r];
+    n = l;
 
     //check
-    for(const auto& val : v)
-        printf("%d ", val);
+    for(int i = 0; i < n; i++)
+        cout << v[i] << " ";
     return 0;
 }

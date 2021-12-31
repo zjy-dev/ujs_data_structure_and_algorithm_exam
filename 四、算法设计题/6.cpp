@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
     //找 <= tar 的第一个数
     int l = 0, r = n - 1, mid;
     while(l < r)
-        if(v[mid = (l + r) >> 1] > tar)
+        if(v[mid = (l + r + 1) >> 1] > tar)
             r = mid - 1;
         else
             l = mid;
